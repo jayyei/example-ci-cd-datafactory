@@ -1,0 +1,22 @@
+{
+	"name": "Data_Set_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedService2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "outputfile.txt",
+				"container": "destinationfile"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
