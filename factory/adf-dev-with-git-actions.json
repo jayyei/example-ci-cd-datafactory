@@ -1,0 +1,9 @@
+{
+	"name": "adf-dev-with-git-actions",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9141884a-aa32-4755-9268-71be788aa636",
+		"tenantId": "f94bf4d9-8097-4794-adf6-a5466ca28563"
+	}
+}
