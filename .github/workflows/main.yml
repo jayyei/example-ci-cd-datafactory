@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     
     environment:
-      name: Preview
+      name: UAT
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
