@@ -289,8 +289,3 @@ else {
     }
 }
 
-$armTemplate:armTemplate
-$ResourceGroupName:resourceGroupName
-$DataFactoryName:dataFactoryName
-$predeployment:predeployment
-$deleteDeployment:deleteDeployment
