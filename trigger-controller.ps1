@@ -1,3 +1,9 @@
+$armTemplate=$env:armTemplate
+$ResourceGroupName=$env:resourceGroupName
+$DataFactoryName=$env:dataFactoryName
+$predeployment:$env:predeployment
+$deleteDeployment:$env:deleteDeployment
+
 param
 (
     [parameter(Mandatory = $false)] [String] $armTemplate,
