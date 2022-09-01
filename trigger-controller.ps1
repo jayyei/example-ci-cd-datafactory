@@ -288,3 +288,9 @@ else {
         Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force
     }
 }
+
+$armTemplate:armTemplate
+$ResourceGroupName:resourceGroupName
+$DataFactoryName:dataFactoryName
+$predeployment:predeployment
+$deleteDeployment:deleteDeployment
