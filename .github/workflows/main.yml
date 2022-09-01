@@ -28,10 +28,10 @@ jobs:
         run: ./trigger-controller.ps1
         shell: pwsh
         env:
-          armTemplate: "$(System.DefaultWorkingDirectory)/adf-dev-with-git-actions/ARMTemplateForFactory.json"
+          armTemplate: ${{ secrets.ARM_TEMPLATE }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
-          predeployment: $true 
-          deleteDeployment: $false 
+          predeployment: true 
+          deleteDeployment: false 
 
       # Log into Azure
       - name: Log into Azure
