@@ -28,7 +28,7 @@ jobs:
         run: ./trigger-controller.ps1
         shell: pwsh
         env:
-          armTemplate: "$(System.DefaultWorkingDirectory)/_TbRepoADF/TbAzure-Dev-JSR/ARMTemplateForFactory.json"
+          armTemplate: "$(System.DefaultWorkingDirectory)/adf-dev-with-git-actions/ARMTemplateForFactory.json"
           resourceGroupName: ${{ secrets.AZURE_RG }}
           predeployment: $true 
           deleteDeployment: $false 
