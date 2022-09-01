@@ -30,6 +30,7 @@ jobs:
         env:
           armTemplate: ${{ secrets.ARM_TEMPLATE }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
+          dataFactoryName: ${{ secrets.DESTINATION_FACTORY_NAME }}
           predeployment: ${{ secrets.STOP_TRIGGER_PREDEPLOYMENT }} 
           deleteDeployment: ${{ secrets.STOP_TRIGGER_DELETE_DEPLOYMENT }} 
 
