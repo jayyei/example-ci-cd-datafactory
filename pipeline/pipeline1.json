@@ -4,7 +4,7 @@
 		"activities": [
 			{
 				"name": "My example of copy data",
-				"description": "Let's copy data from an specific storage resource to another one",
+				"description": "Let's copy data from an specific storage resource to another one\n\nNow let's wait ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -60,6 +60,15 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
 			}
 		],
 		"annotations": []
