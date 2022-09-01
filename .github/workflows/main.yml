@@ -22,21 +22,43 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      # stop triggers
+      - name: Stop Trigger
+        run: ./trigger-controller.ps1
+        shell: pwsh
+        env:
+          armTemplate: ${{ secrets.ARM_TEMPLATE }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          predeployment: true 
+          deleteDeployment: false 
 
       # Log into Azure
-      - uses: azure/login@v1
+      - name: Log into Azure
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-        # Deploy ARM template
+      # Deploy ARM template
       - name: Run ARM deploy
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ./adf-dev-with-git-actions/ARMTemplateForFactory.json
+          template: ${{ secrets.ARM_TEMPLATE }}
           parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json factoryName=${{ secrets.DESTINATION_FACTORY_NAME }} "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
           failOnStdErr: false 
 
-        # output containerName variable from template
-      - run: echo ${{ steps.deploy.outputs.containerName }}
+      # output containerName variable from template
+      - name: output containerName
+        run: echo ${{ steps.deploy.outputs.containerName }}
+        
+       # Start triggers
+      - name: Start Trigger
+        run: ./trigger-controller.ps1
+        shell: pwsh
+        env:
+          armTemplate: ${{ secrets.ARM_TEMPLATE }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          predeployment: false 
+          deleteDeployment: true 
