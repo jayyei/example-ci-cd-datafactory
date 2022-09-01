@@ -30,8 +30,8 @@ jobs:
         env:
           armTemplate: ${{ secrets.ARM_TEMPLATE }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
-          predeployment: 1
-          deleteDeployment: 0
+          predeployment: $true 
+          deleteDeployment: $false
 
       # Log into Azure
       - name: Log into Azure
