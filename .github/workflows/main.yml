@@ -37,6 +37,7 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RG }}
           template: ./adf-dev-with-git-actions/ARMTemplateForFactory.json
           parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json storageAccountType=Standard_LRS
+          failOnStdErr: false 
 
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
