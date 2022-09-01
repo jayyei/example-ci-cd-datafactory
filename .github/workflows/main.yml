@@ -36,7 +36,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
           template: ./adf-dev-with-git-actions/ARMTemplateForFactory.json
-          parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json storageAccountType=Standard_LRS
+          parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json
           failOnStdErr: false 
 
         # output containerName variable from template
