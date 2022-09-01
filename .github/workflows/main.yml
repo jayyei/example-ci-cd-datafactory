@@ -35,7 +35,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
           template: ./adf-dev-with-git-actions/ARMTemplateForFactory.json
-          parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json factoryName=${{ secrets.DESTINATION_FACTORY_NAME }} Linked service 1_connectionString=${{ secrets.LINKED_SERVICE_1 }} LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
+          parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json factoryName=${{ secrets.DESTINATION_FACTORY_NAME }} "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
           failOnStdErr: false 
 
         # output containerName variable from template
