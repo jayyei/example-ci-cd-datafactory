@@ -3,13 +3,13 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"factoryName": {
-			"value": "adf-dev-with-git-actions"
+			"value": "dest-dt-factory"
 		},
 		"Linked service 1_connectionString": {
-			"value": ""
+			"value": "DefaultEndpointsProtocol=https;AccountName=deststgitactions1;AccountKey=osV6kiFBqGuiHm7+xKkO1C/HwR3FW7Fy025vlxwoUwKStuz9N+3/lfnRWo0blO2M07oRNQBmswcr+AStf2Oddg==;EndpointSuffix=core.windows.net"
 		},
 		"LinkedService2_connectionString": {
-			"value": ""
+			"value": "DefaultEndpointsProtocol=https;AccountName=deststgitactions2;AccountKey=uk180eDUuVtv0lSy7lGRig0QCl1OeUb5lb+j4tzcY/IdIKrrsr7OuDry4JLxEvqyuV2c3EdpU/6b+ASt5tHOPQ==;EndpointSuffix=core.windows.net"
 		}
 	}
 }
