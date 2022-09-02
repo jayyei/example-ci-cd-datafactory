@@ -23,6 +23,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
+      # Log into Azure
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          enable-AzPSSession: true 
+      
       # stop triggers
       - name: Stop Trigger
         run: ./trigger-controller.ps1
@@ -33,12 +40,6 @@ jobs:
           dataFactoryName: ${{ secrets.DESTINATION_FACTORY_NAME }}
           predeployment: ${{ secrets.STOP_TRIGGER_PREDEPLOYMENT }} 
           deleteDeployment: ${{ secrets.STOP_TRIGGER_DELETE_DEPLOYMENT }} 
-
-      # Log into Azure
-      - name: Log into Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Deploy ARM template
       - name: Run ARM deploy
