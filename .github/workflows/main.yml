@@ -54,9 +54,9 @@ jobs:
           resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
           template: ${{ secrets.AZ_ARM_TEMPLATE }}
           parameters: |
-            ${{ secrets.AZ_ARM_PARAMETERS_TEMPLATE }} 
-            factoryName=${{ secrets.AZ_DATA_FACTORY }} 
-            "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} 
+            ${{ secrets.AZ_ARM_PARAMETERS_TEMPLATE }} `
+            factoryName=${{ secrets.AZ_DATA_FACTORY }} `
+            "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} `
             LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
           failOnStdErr: false 
         
