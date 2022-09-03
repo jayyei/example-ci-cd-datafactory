@@ -32,7 +32,7 @@ jobs:
       - name: Log into Azure
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZ_CREDENTIALS }}
           enable-AzPSSession: true 
       
       # stop triggers
@@ -40,9 +40,9 @@ jobs:
         run: ./trigger-controller.ps1
         shell: pwsh
         env:
-          armTemplate: ${{ secrets.ARM_TEMPLATE }}
-          resourceGroupName: ${{ secrets.AZURE_RG }}
-          dataFactoryName: ${{ secrets.DESTINATION_FACTORY_NAME }}
+          armTemplate: ${{ secrets.AZ_ARM_TEMPLATE }}
+          resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
+          dataFactoryName: ${{ secrets.AZ_DATA_FACTORY }}
           predeployment: ${{ secrets.STOP_TRIGGER_PREDEPLOYMENT }} 
           deleteDeployment: ${{ secrets.STOP_TRIGGER_DELETE_DEPLOYMENT }} 
           
@@ -50,10 +50,14 @@ jobs:
       - name: Run ARM deploy
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ${{ secrets.ARM_TEMPLATE }}
-          parameters: ./adf-dev-with-git-actions/ARMTemplateParametersForFactory.json factoryName=${{ secrets.DESTINATION_FACTORY_NAME }} "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
+          subscriptionId: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
+          template: ${{ secrets.AZ_ARM_TEMPLATE }}
+          parameters: |
+            ${{ secrets.AZ_ARM_PARAMETERS_TEMPLATE }} 
+            factoryName=${{ secrets.AZ_DATA_FACTORY }} 
+            "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} 
+            LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
           failOnStdErr: false 
         
       # Start triggers
@@ -61,10 +65,10 @@ jobs:
         run: ./trigger-controller.ps1
         shell: pwsh
         env:
-          armTemplate: ${{ secrets.ARM_TEMPLATE }}
-          resourceGroupName: ${{ secrets.AZURE_RG }}
-          predeployment: false 
-          deleteDeployment: true 
+          armTemplate: ${{ secrets.AZ_ARM_TEMPLATE }}
+          resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
+          predeployment: ${{ secrets.START_TRIGGER_PREDEPLOYMENT }} 
+          deleteDeployment: ${{ secrets.START_TRIGGER_DELETE_DEPLOYMENT }}  
           
       # output containerName variable from template
       - name: output containerName
