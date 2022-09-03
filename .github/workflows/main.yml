@@ -33,7 +33,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZ_CREDENTIALS }}
-          enable-AzPSSession: true 
+          # enable-AzPSSession: true 
       
       # stop triggers
       - name: Stop Trigger
@@ -53,11 +53,7 @@ jobs:
           subscriptionId: ${{ secrets.AZ_SUBSCRIPTION_ID }}
           resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
           template: ${{ secrets.AZ_ARM_TEMPLATE }}
-          parameters: |
-            ${{ secrets.AZ_ARM_PARAMETERS_TEMPLATE }} `
-            factoryName=${{ secrets.AZ_DATA_FACTORY }} `
-            "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} `
-            LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}  
+          parameters: ${{ secrets.AZ_ARM_PARAMETERS_TEMPLATE }} factoryName=${{ secrets.AZ_DATA_FACTORY }} "Linked service 1_connectionString"=${{ secrets.LINKED_SERVICE_1 }} LinkedService2_connectionString=${{ secrets.LINKED_SERVICE_2 }}
           failOnStdErr: false 
         
       # Start triggers
