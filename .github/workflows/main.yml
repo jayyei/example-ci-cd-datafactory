@@ -27,6 +27,13 @@ jobs:
       - name: Install Az PoweShell module
         run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
         shell: pwsh
+        
+      # Log into Azure
+      - name: Log into Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          enable-AzPSSession: true 
       
       # stop triggers
       - name: Stop Trigger
@@ -38,13 +45,6 @@ jobs:
           dataFactoryName: ${{ secrets.DESTINATION_FACTORY_NAME }}
           predeployment: ${{ secrets.STOP_TRIGGER_PREDEPLOYMENT }} 
           deleteDeployment: ${{ secrets.STOP_TRIGGER_DELETE_DEPLOYMENT }} 
-
-      # Log into Azure
-      - name: Log into Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          enable-AzPSSession: true 
           
       # Deploy ARM template
       - name: Run ARM deploy
