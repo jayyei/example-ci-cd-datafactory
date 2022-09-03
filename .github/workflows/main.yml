@@ -63,6 +63,7 @@ jobs:
         env:
           armTemplate: ${{ secrets.AZ_ARM_TEMPLATE }}
           resourceGroupName: ${{ secrets.AZ_RESOURCE_GROUP }}
+          dataFactoryName: ${{ secrets.AZ_DATA_FACTORY }}
           predeployment: ${{ secrets.START_TRIGGER_PREDEPLOYMENT }} 
           deleteDeployment: ${{ secrets.START_TRIGGER_DELETE_DEPLOYMENT }}  
           
