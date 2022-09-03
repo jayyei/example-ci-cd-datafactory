@@ -3,8 +3,8 @@ param
     [parameter(Mandatory = $false)] [String] $armTemplate=$env:armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName=$env:resourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName=$env:dataFactoryName,
-    [parameter(Mandatory = $false)] [Bool] $predeployment=[boolean]$env:predeployment,
-    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=[boolean]$env:deleteDeployment
+    [parameter(Mandatory = $false)] [Bool] $predeployment=[System.convert]::toBoolean($env:predeployment),
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=[System.convert]::toBoolean($env:deleteDeployment)
 )
 
 function getPipelineDependencies {
