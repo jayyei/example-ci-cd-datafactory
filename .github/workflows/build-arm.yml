@@ -27,11 +27,6 @@ jobs:
         with:
           name: release_arm_artifact.tar
           path: ./build/armTemplate
-          
-  get-artifact:
-    runs-on: ubuntu-latest
-    needs: build-arm-template
-      
               
               
  
