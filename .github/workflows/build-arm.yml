@@ -4,5 +4,8 @@ jobs:
     runs-on: ubuntu-latest
     container: node:14
     steps:
-      - run: node --version
-      - run: npm --version
+      - name: install utility project
+        working-directory: ./build
+        run: | 
+              node --version
+              npm --version
