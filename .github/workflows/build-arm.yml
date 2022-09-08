@@ -45,7 +45,7 @@ jobs:
        run: | 
          tar cvpfz ./arm-template/release_arm_artifact.tar ./
          cd arm-template
-         ls -R     
+         ls      
          
      
               
