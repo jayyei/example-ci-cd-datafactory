@@ -2,10 +2,9 @@ on: push
 jobs:
   build-arm-template:
     runs-on: ubuntu-latest
-    container: node:14
+    container: node:16
     steps:
       - name: install utility project
-        working-directory: ./build
         run: | 
               node --version
               npm --version
