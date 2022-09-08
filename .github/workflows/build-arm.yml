@@ -35,9 +35,19 @@ jobs:
      - name: Checkout repository
        uses: actions/checkout@v3
        
-     - uses: actions/download-artifact@v3
+     - name: Download arm artifact
+       uses: actions/download-artifact@v3
        with:
          name: release_arm_artifact.tar
+         path: ./arm-template
+         
+     - name: unzip artifact
+       run: | 
+         tar –xvf ./arm-template/release_arm_artifact.tar
+         ls -R
+    
+         
+     
               
               
  
