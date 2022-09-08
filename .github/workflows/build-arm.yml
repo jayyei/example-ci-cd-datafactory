@@ -27,6 +27,17 @@ jobs:
         with:
           name: release_arm_artifact.tar
           path: ./build/armTemplate
+          
+  deploy-arm-template:
+    needs: build-arm-template
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout repository
+       uses: actions/checkout@v3
+       
+     - uses: actions/download-artifact@v3
+       with:
+         name: release_arm_artifact.tar
               
               
  
