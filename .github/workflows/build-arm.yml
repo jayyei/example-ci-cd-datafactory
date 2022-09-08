@@ -4,7 +4,12 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+    
       - name: install utility project
+        working-directory: ./build
         run: | 
               node --version
               npm --version
+              npm install
