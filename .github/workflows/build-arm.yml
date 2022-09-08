@@ -43,7 +43,7 @@ jobs:
          
      - name: unzip artifact
        run: | 
-         tar –xvf ./arm-template/release_arm_artifact.tar
+         tar cvpfz ./arm-template/release_arm_artifact.tar
          ls -R
     
          
