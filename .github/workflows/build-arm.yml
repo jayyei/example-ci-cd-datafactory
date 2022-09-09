@@ -1,10 +1,13 @@
 on: push
 jobs:
+
   build-arm-template:
     runs-on: ubuntu-latest
     container: node:16
+    
     environment:
       name: UAT
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -28,9 +31,14 @@ jobs:
           name: release_arm_artifact.tar
           path: ./build/armTemplate
           
+          
   deploy-arm-template:
     needs: build-arm-template
     runs-on: ubuntu-latest
+    
+    environment:
+      name: UAT
+    
     steps:
      - name: Checkout repository
        uses: actions/checkout@v3
@@ -45,7 +53,22 @@ jobs:
        run: | 
          tar cvpfz ./arm-template/release_arm_artifact.tar ./
          cd arm-template
-         ls      
+         ls
+     
+     # install Az PowerShell module
+     - name: Install Az PoweShell module
+       run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
+       shell: pwsh
+        
+      # Log into Azure
+     - name: Log into Azure
+       uses: azure/login@v1
+       with:
+         creds: ${{ secrets.AZ_CREDENTIALS }}
+         enable-AzPSSession: true
+     
+         
+   
          
      
               
