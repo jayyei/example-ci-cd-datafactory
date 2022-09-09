@@ -54,18 +54,19 @@ jobs:
          tar cvpfz ./arm-template/release_arm_artifact.tar ./
          cd arm-template
          ls
-     
-     # install Az PowerShell module
-     - name: Install Az PoweShell module
-       run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
-       shell: pwsh
-        
-      # Log into Azure
+         
      - name: Log into Azure
-       uses: azure/actions/login@v1
+       uses: azure/CLI@v1
+       env: 
+         credentials: ${{ secrets.AZURE_CREDENTIALS }}
+         AZURE_CLIENT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['clientId'] }}
+         AZURE_CLIENT_SECRET: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['clientSecret'] }}
+         AZURE_TENANT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['tenantId'] }}
        with:
-         creds: ${{ secrets.AZ_CREDENTIALS }}
-         enable-AzPSSession: true
+         azcliversion: 2.0.72
+         inlineScript: |
+           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
+           az account list
      
          
    
