@@ -59,9 +59,9 @@ jobs:
        uses: azure/CLI@v1
        env: 
          credentials: ${{ secrets.AZURE_CREDENTIALS }}
-         AZURE_CLIENT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['clientId'] }}
-         AZURE_CLIENT_SECRET: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['clientSecret'] }}
-         AZURE_TENANT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS)['tenantId'] }}
+         AZURE_CLIENT_ID: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['clientId'] }}
+         AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['clientSecret'] }}
+         AZURE_TENANT_ID: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['tenantId'] }}
        with:
          azcliversion: 2.0.72
          inlineScript: |
