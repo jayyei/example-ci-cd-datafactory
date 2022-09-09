@@ -32,40 +32,40 @@ jobs:
           path: ./build/armTemplate
           
           
-  deploy-arm-template:
-    needs: build-arm-template
-    runs-on: ubuntu-latest
+  # deploy-arm-template:
+    #needs: build-arm-template
+    #runs-on: ubuntu-latest
     
-    environment:
-      name: UAT
+    # environment:
+    # name: UAT
     
-    steps:
-     - name: Checkout repository
-       uses: actions/checkout@v3
+    # steps:
+    # - name: Checkout repository
+    #  uses: actions/checkout@v3
        
-     - name: Download arm artifact
-       uses: actions/download-artifact@v3
-       with:
-         name: release_arm_artifact.tar
-         path: ./arm-template
+    # - name: Download arm artifact
+    # uses: actions/download-artifact@v3
+    # with:
+    #   name: release_arm_artifact.tar
+    #   path: ./arm-template
          
-     - name: unzip artifact
-       run: | 
-         tar cvpfz ./arm-template/release_arm_artifact.tar ./
-         cd arm-template
-         ls
+     # - name: unzip artifact
+     # run: | 
+     #  tar cvpfz ./arm-template/release_arm_artifact.tar ./
+     #   cd arm-template
+     #   ls
          
      # install Az PowerShell module
-     - name: Install Az PoweShell module
-       run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
-       shell: pwsh
+     # - name: Install Az PoweShell module
+     # run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
+     # shell: pwsh
         
       # Log into Azure
-     - name: Log into Azure
-       uses: azure/login@v1
-       with:
-         creds: ${{ secrets.AZ_CREDENTIALS }}
-         enable-AzPSSession: true
+     # - name: Log into Azure
+       # uses: azure/login@v1
+       # with:
+       # creds: ${{ secrets.AZ_CREDENTIALS }}
+       # enable-AzPSSession: true
      
          
    
