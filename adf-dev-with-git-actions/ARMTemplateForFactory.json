@@ -89,7 +89,7 @@
 					},
 					{
 						"name": "Wait test",
-						"description": "This is our second pipeline",
+						"description": "This is our second pipeline test",
 						"type": "Wait",
 						"dependsOn": [],
 						"userProperties": [],
