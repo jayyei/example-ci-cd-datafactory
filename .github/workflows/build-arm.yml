@@ -55,18 +55,17 @@ jobs:
          cd arm-template
          ls
          
+     # install Az PowerShell module
+     - name: Install Az PoweShell module
+       run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
+       shell: pwsh
+        
+      # Log into Azure
      - name: Log into Azure
-       uses: azure/CLI@v1
-       env: 
-         credentials: ${{ secrets.AZURE_CREDENTIALS }}
-         AZURE_CLIENT_ID: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['clientId'] }}
-         AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['clientSecret'] }}
-         AZURE_TENANT_ID: ${{ secrets.AZURE_CREDENTIALS && fromJSON(secrets.AZURE_CREDENTIALS)['tenantId'] }}
+       uses: azure/login@v1
        with:
-         azcliversion: 2.0.72
-         inlineScript: |
-           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID
-           az account list
+         creds: ${{ secrets.AZ_CREDENTIALS }}
+         enable-AzPSSession: true
      
          
    
