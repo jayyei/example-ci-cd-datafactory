@@ -23,12 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-      # install Az PowerShell module
+      # install Az PowerShell module (necesaria para ejecutar los pre y post scripts)
       - name: Install Az PoweShell module
         run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force 
         shell: pwsh
         
-      # Log into Azure
+      # Log into Azure ( habilita la sesion en powershell para poder ejecutar los scripts)
       - name: Log into Azure
         uses: azure/login@v1
         with:
