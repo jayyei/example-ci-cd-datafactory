@@ -176,7 +176,7 @@
 						]
 					},
 					{
-						"name": "Wait test",
+						"name": "Wait test 2",
 						"description": "This is our second pipeline test",
 						"type": "Wait",
 						"dependsOn": [],
