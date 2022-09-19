@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
-		"Linked service 1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Linked service 1'"
+		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
-		"LinkedService2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LinkedService2'"
+		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "devbstoragejsrsecret"
 		}
 	},
 	"variables": {
@@ -21,31 +21,39 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Linked service 1')]",
+			"name": "[concat(parameters('factoryName'), '/LnkAzureKeyVault1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "This is a new linked service",
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "AzureKeyVault",
 				"typeProperties": {
-					"connectionString": "[parameters('Linked service 1_connectionString')]"
+					"baseUrl": "[parameters('LnkAzureKeyVault1_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LinkedService2')]",
+			"name": "[concat(parameters('factoryName'), '/Linked_service_1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('LinkedService2_connectionString')]"
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LnkAzureKeyVault1",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('Linked_service_1_properties_typeProperties_connectionString_secretName')]"
+					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LnkAzureKeyVault1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Data_Set_1')]",
@@ -53,7 +61,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "Linked service 1",
+					"referenceName": "Linked_service_1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -78,7 +86,7 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Linked service 1')]"
+				"[concat(variables('factoryId'), '/linkedServices/Linked_service_1')]"
 			]
 		},
 		{
@@ -87,7 +95,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "LinkedService2",
+					"referenceName": "Linked_service_1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -105,7 +113,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LinkedService2')]"
+				"[concat(variables('factoryId'), '/linkedServices/Linked_service_1')]"
 			]
 		},
 		{

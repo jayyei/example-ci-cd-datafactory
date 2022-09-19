@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
-		"Linked service 1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Linked service 1'"
+		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "devbstoragejsrsecret"
 		},
-		"LinkedService2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LinkedService2'"
+		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +42,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"Linked service 1_connectionString": {
-						"value": "[parameters('Linked service 1_connectionString')]"
+					"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LnkAzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
-					"LinkedService2_connectionString": {
-						"value": "[parameters('LinkedService2_connectionString')]"
+					"Linked_service_1_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Linked_service_1_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},

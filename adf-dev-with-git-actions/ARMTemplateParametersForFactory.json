@@ -5,11 +5,11 @@
 		"factoryName": {
 			"value": "adf-dev-with-git-actions"
 		},
-		"Linked service 1_connectionString": {
-			"value": ""
+		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
+			"value": "devbstoragejsrsecret"
 		},
-		"LinkedService2_connectionString": {
-			"value": ""
+		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		}
 	}
 }
