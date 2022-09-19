@@ -2,7 +2,7 @@
 	"name": "Data_Set_2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LinkedService2",
+			"referenceName": "Linked_service_1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
