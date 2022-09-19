@@ -1,0 +1,10 @@
+{
+	"name": "LnkAzureKeyVault1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://my-first-key-vault-dvjsr.vault.azure.net/"
+		}
+	}
+}
