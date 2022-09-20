@@ -1,6 +1,5 @@
 {
 	"name": "HttpServer1",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",
@@ -9,11 +8,19 @@
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Basic",
 			"userName": "jayyei",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMWY3ZTNjMi0yNDZhLTQ1NTktODY4My0xYjVhMjVkOWU5MTgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkAzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "devbstoragejsrsecret"
+			}
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
 			"type": "IntegrationRuntimeReference"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
