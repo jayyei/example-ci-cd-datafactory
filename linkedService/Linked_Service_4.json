@@ -1,0 +1,28 @@
+{
+	"name": "Linked_Service_4",
+	"properties": {
+		"annotations": [],
+		"type": "Spark",
+		"typeProperties": {
+			"host": "172.12.32",
+			"port": 443,
+			"serverType": "SharkServer",
+			"thriftTransportProtocol": "HTTP",
+			"authenticationType": "UsernameAndPassword",
+			"username": "jayyei",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkAzureKeyVault2",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "passwordspark"
+			},
+			"enableSsl": false
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
