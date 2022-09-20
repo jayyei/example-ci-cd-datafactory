@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
+		"HttpServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HttpServer1'"
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
@@ -18,6 +22,14 @@
 		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "conectionstringoracle"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "rsrefeewfwefwefwef"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "jayyei"
 		},
 		"default_properties_env_value": {
 			"type": "string",
@@ -50,6 +62,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"HttpServer1_password": {
+						"value": "[parameters('HttpServer1_password')]"
+					},
 					"default_properties_env_value": {
 						"value": "[parameters('default_properties_env_value')]"
 					},
@@ -61,6 +76,12 @@
 					},
 					"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Linked_service_2_properties_typeProperties_connectionString_secretName')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_userName": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
 					}
 				}
 			},

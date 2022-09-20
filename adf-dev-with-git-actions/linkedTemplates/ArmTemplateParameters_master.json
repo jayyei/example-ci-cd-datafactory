@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "adf-dev-with-git-actions"
 		},
+		"HttpServer1_password": {
+			"value": ""
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"value": "devbstoragejsrsecret"
 		},
@@ -13,6 +16,12 @@
 		},
 		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"value": "conectionstringoracle"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "rsrefeewfwefwefwef"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "jayyei"
 		},
 		"default_properties_env_value": {
 			"value": "des"
