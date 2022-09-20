@@ -1,0 +1,21 @@
+{
+	"name": "Linked_service_2",
+	"properties": {
+		"annotations": [],
+		"type": "Oracle",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkAzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "conectionstringoracle"
+			}
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
