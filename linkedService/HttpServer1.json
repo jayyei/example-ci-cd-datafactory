@@ -20,7 +20,8 @@
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
 			"type": "IntegrationRuntimeReference"
-		}
+		},
+		"description": "this is a brief description"
 	},
 	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
