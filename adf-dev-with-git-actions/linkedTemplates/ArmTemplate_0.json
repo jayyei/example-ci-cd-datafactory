@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
-		"Linked_service_2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Linked_service_2'"
-		},
 		"default_properties_env_value": {
 			"type": "string",
 			"defaultValue": "des"
@@ -22,6 +18,14 @@
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
+		},
+		"Linked_Service_file_3_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "node-1"
+		},
+		"Linked_Service_file_3_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "jayyei"
 		}
 	},
 	"variables": {
@@ -86,14 +90,15 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Linked_service_2')]",
+			"name": "[concat(parameters('factoryName'), '/Linked_Service_file_3')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "SqlServer",
+				"type": "FileServer",
 				"typeProperties": {
-					"connectionString": "[parameters('Linked_service_2_connectionString')]",
+					"host": "[parameters('Linked_Service_file_3_properties_typeProperties_host')]",
+					"userId": "[parameters('Linked_Service_file_3_properties_typeProperties_userId')]",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
