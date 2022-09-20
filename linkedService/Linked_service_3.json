@@ -1,0 +1,23 @@
+{
+	"name": "Linked_service_3",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "test",
+			"userId": "jayyei",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkAzureKeyVault2",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "httpSecret"
+			}
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
