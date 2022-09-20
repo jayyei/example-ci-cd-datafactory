@@ -15,13 +15,9 @@
 			"type": "string",
 			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
-		"Linked_Service_file_3_properties_typeProperties_host": {
+		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
-			"defaultValue": "node-1"
-		},
-		"Linked_Service_file_3_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "jayyei"
+			"defaultValue": "conectionstringoracle"
 		},
 		"default_properties_env_value": {
 			"type": "string",
@@ -63,11 +59,8 @@
 					"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Linked_service_1_properties_typeProperties_connectionString_secretName')]"
 					},
-					"Linked_Service_file_3_properties_typeProperties_host": {
-						"value": "[parameters('Linked_Service_file_3_properties_typeProperties_host')]"
-					},
-					"Linked_Service_file_3_properties_typeProperties_userId": {
-						"value": "[parameters('Linked_Service_file_3_properties_typeProperties_userId')]"
+					"Linked_service_2_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Linked_service_2_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},

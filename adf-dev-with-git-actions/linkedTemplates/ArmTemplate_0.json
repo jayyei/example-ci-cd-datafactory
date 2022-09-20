@@ -19,13 +19,9 @@
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
 		},
-		"Linked_Service_file_3_properties_typeProperties_host": {
+		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
-			"defaultValue": "node-1"
-		},
-		"Linked_Service_file_3_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "jayyei"
+			"defaultValue": "conectionstringoracle"
 		}
 	},
 	"variables": {
@@ -90,22 +86,20 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Linked_Service_file_3')]",
+			"name": "[concat(parameters('factoryName'), '/Linked_service_2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "FileServer",
+				"type": "Oracle",
 				"typeProperties": {
-					"host": "[parameters('Linked_Service_file_3_properties_typeProperties_host')]",
-					"userId": "[parameters('Linked_Service_file_3_properties_typeProperties_userId')]",
-					"password": {
+					"connectionString": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
 							"referenceName": "LnkAzureKeyVault1",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "secretforhttpserver"
+						"secretName": "[parameters('Linked_service_2_properties_typeProperties_connectionString_secretName')]"
 					}
 				},
 				"connectVia": {
