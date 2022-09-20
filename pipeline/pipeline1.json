@@ -70,6 +70,18 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "env = des",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"annotations": []
