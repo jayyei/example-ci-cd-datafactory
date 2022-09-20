@@ -78,7 +78,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "env = des",
+						"value": "@equals(pipeline().globalParameters.env, 'dev')",
 						"type": "Expression"
 					}
 				}
