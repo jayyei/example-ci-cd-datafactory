@@ -5,17 +5,14 @@
 		"factoryName": {
 			"value": "adf-dev-with-git-actions"
 		},
+		"Linked_service_2_connectionString": {
+			"value": ""
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"value": "devbstoragejsrsecret"
 		},
 		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://my-first-key-vault-dvjsr.vault.azure.net/"
-		},
-		"HttpServer1_properties_typeProperties_url": {
-			"value": "20.83.191.69:3389"
-		},
-		"HttpServer1_properties_typeProperties_userName": {
-			"value": "jayyei"
 		},
 		"default_properties_env_value": {
 			"value": "des"

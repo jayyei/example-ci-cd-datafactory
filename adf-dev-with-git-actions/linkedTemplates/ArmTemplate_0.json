@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
+		"Linked_service_2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Linked_service_2'"
+		},
 		"default_properties_env_value": {
 			"type": "string",
 			"defaultValue": "des"
@@ -18,14 +22,6 @@
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
-		},
-		"HttpServer1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "20.83.191.69:3389"
-		},
-		"HttpServer1_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "jayyei"
 		}
 	},
 	"variables": {
@@ -90,18 +86,14 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/HttpServer1')]",
+			"name": "[concat(parameters('factoryName'), '/Linked_service_2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "this is a brief description",
 				"annotations": [],
-				"type": "HttpServer",
+				"type": "SqlServer",
 				"typeProperties": {
-					"url": "[parameters('HttpServer1_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('HttpServer1_properties_typeProperties_userName')]",
+					"connectionString": "[parameters('Linked_service_2_connectionString')]",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
