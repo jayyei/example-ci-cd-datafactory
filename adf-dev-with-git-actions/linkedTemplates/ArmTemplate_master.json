@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
-		"HttpServer1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'HttpServer1'"
-		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
@@ -61,9 +57,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"HttpServer1_password": {
-						"value": "[parameters('HttpServer1_password')]"
 					},
 					"default_properties_env_value": {
 						"value": "[parameters('default_properties_env_value')]"

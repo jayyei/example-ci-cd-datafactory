@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
-		"HttpServer1_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'HttpServer1'"
-		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
@@ -317,8 +313,12 @@
 					"authenticationType": "Basic",
 					"userName": "[parameters('HttpServer1_properties_typeProperties_userName')]",
 					"password": {
-						"type": "SecureString",
-						"value": "[parameters('HttpServer1_password')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LnkAzureKeyVault1",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "httpsecretpassword"
 					}
 				},
 				"connectVia": {
@@ -327,7 +327,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]",
+				"[concat(variables('factoryId'), '/linkedServices/LnkAzureKeyVault1')]"
 			]
 		},
 		{
