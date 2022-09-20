@@ -107,7 +107,7 @@
 							"referenceName": "LnkAzureKeyVault1",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "devbstoragejsrsecret"
+						"secretName": "secretforhttpserver"
 					}
 				},
 				"connectVia": {
