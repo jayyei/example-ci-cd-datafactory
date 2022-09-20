@@ -19,11 +19,15 @@
 			"type": "string",
 			"defaultValue": "conectionstringoracle"
 		},
-		"HttpServer1_properties_typeProperties_url": {
+		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "rsrefeewfwefwefwef"
+			"defaultValue": "https://my-secondkey-vault.vault.azure.net/"
 		},
-		"HttpServer1_properties_typeProperties_userName": {
+		"Linked_service_3_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "test"
+		},
+		"Linked_service_3_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "jayyei"
 		},
@@ -64,17 +68,20 @@
 					"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LnkAzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
+					"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LnkAzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
 					"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Linked_service_1_properties_typeProperties_connectionString_secretName')]"
 					},
 					"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Linked_service_2_properties_typeProperties_connectionString_secretName')]"
 					},
-					"HttpServer1_properties_typeProperties_url": {
-						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					"Linked_service_3_properties_typeProperties_host": {
+						"value": "[parameters('Linked_service_3_properties_typeProperties_host')]"
 					},
-					"HttpServer1_properties_typeProperties_userName": {
-						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
+					"Linked_service_3_properties_typeProperties_userId": {
+						"value": "[parameters('Linked_service_3_properties_typeProperties_userId')]"
 					}
 				}
 			},

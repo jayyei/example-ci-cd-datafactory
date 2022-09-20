@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
+		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://my-secondkey-vault.vault.azure.net/"
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
@@ -23,11 +27,11 @@
 			"type": "string",
 			"defaultValue": "conectionstringoracle"
 		},
-		"HttpServer1_properties_typeProperties_url": {
+		"Linked_service_3_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "rsrefeewfwefwefwef"
+			"defaultValue": "test"
 		},
-		"HttpServer1_properties_typeProperties_userName": {
+		"Linked_service_3_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "jayyei"
 		}
@@ -68,6 +72,19 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LnkAzureKeyVault2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('LnkAzureKeyVault2_properties_typeProperties_baseUrl')]"
+				}
 			},
 			"dependsOn": []
 		},
@@ -121,24 +138,22 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/HttpServer1')]",
+			"name": "[concat(parameters('factoryName'), '/Linked_service_3')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "HttpServer",
+				"type": "FileServer",
 				"typeProperties": {
-					"url": "[parameters('HttpServer1_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": false,
-					"authenticationType": "Basic",
-					"userName": "[parameters('HttpServer1_properties_typeProperties_userName')]",
+					"host": "[parameters('Linked_service_3_properties_typeProperties_host')]",
+					"userId": "[parameters('Linked_service_3_properties_typeProperties_userId')]",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
-							"referenceName": "LnkAzureKeyVault1",
+							"referenceName": "LnkAzureKeyVault2",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "httpsecretpassword"
+						"secretName": "httpSecret"
 					}
 				},
 				"connectVia": {
@@ -148,7 +163,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]",
-				"[concat(variables('factoryId'), '/linkedServices/LnkAzureKeyVault1')]"
+				"[concat(variables('factoryId'), '/linkedServices/LnkAzureKeyVault2')]"
 			]
 		},
 		{
