@@ -1,10 +1,6 @@
 {
 	"name": "Data_Set_1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Linked service 1",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
