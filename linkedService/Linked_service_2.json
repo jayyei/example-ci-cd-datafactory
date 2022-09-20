@@ -1,0 +1,22 @@
+{
+	"name": "Linked_service_2",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=node-1;Initial Catalog=test;User ID=jayyei",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkAzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "secretforhttpserver"
+			}
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
