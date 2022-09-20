@@ -11,6 +11,9 @@
 		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
+		"default_properties_env_value": {
+			"value": "des"
+		},
 		"containerUri": {
 			"value": ""
 		},

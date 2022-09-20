@@ -14,6 +14,10 @@
 		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
+		},
+		"default_properties_env_value": {
+			"type": "string",
+			"defaultValue": "des"
 		}
 	},
 	"variables": {
@@ -246,6 +250,18 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/default')]",
+			"type": "Microsoft.DataFactory/factories/globalparameters",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"env": {
+					"type": "string",
+					"value": "[parameters('default_properties_env_value')]"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

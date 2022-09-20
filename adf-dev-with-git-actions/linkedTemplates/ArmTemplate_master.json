@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
+		"default_properties_env_value": {
+			"type": "string",
+			"defaultValue": "des"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -41,6 +45,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"default_properties_env_value": {
+						"value": "[parameters('default_properties_env_value')]"
 					},
 					"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LnkAzureKeyVault1_properties_typeProperties_baseUrl')]"
