@@ -7,21 +7,21 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-dev-with-git-actions"
 		},
+		"Linked_Service_4_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "172.12.32"
+		},
+		"Linked_Service_4_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "jayyei"
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "devbstoragejsrsecret"
 		},
-		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
-		},
 		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "conectionstringoracle"
-		},
-		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://my-secondkey-vault.vault.azure.net/"
 		},
 		"Linked_service_3_properties_typeProperties_host": {
 			"type": "string",
@@ -31,13 +31,13 @@
 			"type": "string",
 			"defaultValue": "jayyei"
 		},
-		"Linked_Service_4_properties_typeProperties_host": {
+		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "172.12.32"
+			"defaultValue": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
-		"Linked_Service_4_properties_typeProperties_username": {
+		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "jayyei"
+			"defaultValue": "https://my-secondkey-vault.vault.azure.net/"
 		},
 		"default_properties_env_value": {
 			"type": "string",
@@ -79,6 +79,12 @@
 					"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LnkAzureKeyVault2_properties_typeProperties_baseUrl')]"
 					},
+					"Linked_Service_4_properties_typeProperties_host": {
+						"value": "[parameters('Linked_Service_4_properties_typeProperties_host')]"
+					},
+					"Linked_Service_4_properties_typeProperties_username": {
+						"value": "[parameters('Linked_Service_4_properties_typeProperties_username')]"
+					},
 					"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Linked_service_1_properties_typeProperties_connectionString_secretName')]"
 					},
@@ -90,12 +96,6 @@
 					},
 					"Linked_service_3_properties_typeProperties_userId": {
 						"value": "[parameters('Linked_service_3_properties_typeProperties_userId')]"
-					},
-					"Linked_Service_4_properties_typeProperties_host": {
-						"value": "[parameters('Linked_Service_4_properties_typeProperties_host')]"
-					},
-					"Linked_Service_4_properties_typeProperties_username": {
-						"value": "[parameters('Linked_Service_4_properties_typeProperties_username')]"
 					}
 				}
 			},

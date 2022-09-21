@@ -5,17 +5,17 @@
 		"factoryName": {
 			"value": "adf-dev-with-git-actions"
 		},
+		"Linked_Service_4_properties_typeProperties_host": {
+			"value": "172.12.32"
+		},
+		"Linked_Service_4_properties_typeProperties_username": {
+			"value": "jayyei"
+		},
 		"Linked_service_1_properties_typeProperties_connectionString_secretName": {
 			"value": "devbstoragejsrsecret"
 		},
-		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
-			"value": "https://my-first-key-vault-dvjsr.vault.azure.net/"
-		},
 		"Linked_service_2_properties_typeProperties_connectionString_secretName": {
 			"value": "conectionstringoracle"
-		},
-		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
-			"value": "https://my-secondkey-vault.vault.azure.net/"
 		},
 		"Linked_service_3_properties_typeProperties_host": {
 			"value": "test"
@@ -23,11 +23,11 @@
 		"Linked_service_3_properties_typeProperties_userId": {
 			"value": "jayyei"
 		},
-		"Linked_Service_4_properties_typeProperties_host": {
-			"value": "172.12.32"
+		"LnkAzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://my-first-key-vault-dvjsr.vault.azure.net/"
 		},
-		"Linked_Service_4_properties_typeProperties_username": {
-			"value": "jayyei"
+		"LnkAzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://my-secondkey-vault.vault.azure.net/"
 		},
 		"default_properties_env_value": {
 			"value": "des"
