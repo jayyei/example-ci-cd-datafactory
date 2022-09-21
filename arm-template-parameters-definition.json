@@ -95,7 +95,7 @@
                     "existingClusterId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
-                    "hostSubscriptionId": "=",
+                    "hostSubscriptionId": "*",
                     "clusterResourceGroup": "=",
                     "subscriptionId": "=",
                     "resourceGroupName": "=",
