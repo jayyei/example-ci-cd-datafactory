@@ -1,0 +1,39 @@
+
+Notas Pre script para azure data factory con arrayList Fallido debido a la recostruccion del template a objeto json ConvertTo-Json
+
+1.- Primero se obtiene la plantilla del json
+
+*  $templateJson = Get-Content .\ARMTemplateForFactory.json | ConvertFrom-Json
+
+
+2.- Se obtienen los recursos de la plantilla 
+
+* $resources = $templateJson.resources
+
+
+3.- Se Crea un arrayList a partir los recursos del template
+
+* $arrayOfResources = [System.Collections.ArrayList]($resources)
+
+
+4.- Se crea un arrayList de los linkedServices que se encuentran en los recursos
+
+* $arrayOfLinkedServicesInTemplate = $arrayOfResources | where type -eq "Microsoft.DataFactory/factories/linkedServices"
+
+
+5.- Se eliminan los linkedServices del array de recursos 
+
+foreach ($linkedService in $arrayOfLinkedServicesInTemplate) { $arrayOfResources.Remove($linkedService) }
+
+
+6.- Se Setean los nuevos recursos casteando al tipo de dato original
+
+$resources = [System.Object[]]$arrayOfResources
+
+7.- Se setean los nuevos recursos en el template original
+
+$templateJson.resources = $resources
+
+8.- Se crea el objeto json para guardar
+
+$templateToSave = $templateJson | ConvertTo-Json 
